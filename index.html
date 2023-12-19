@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="./bundle.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Intro section with dropdown navigation</title>
+  </head>
+  <body>
+    <nav>
+      <div class="navbar-main">
+        <div class="navbar-logo">
+          <img src="./images/logo.svg" alt="Snap" />
+        </div>
+        <div class="navbar-toggle">
+          <span class="toggle-icon" onclick="toggleNavbar()">
+            <img src="./images/icon-menu.svg" alt="" />
+          </span>
+        </div>
+      </div>
+      <div class="navbar-nav hidden">
+        <div class="navbar-close">
+          <span class="close-icon" onclick="toggleNavbar()">
+            <img src="./images/icon-close-menu.svg" alt="" />
+          </span>
+        </div>
+        <menu class="navbar-list navbar-l1">
+          <li>
+            <span class="navbar-l2-header" onclick="toggleSubitems(event)">
+              features
+              <span class="icon"
+                ><img src="./images/icon-arrow-down.svg" alt=""
+              /></span>
+            </span>
+            <menu class="navbar-list navbar-l2 hidden">
+              <li>
+                <span class="icon"
+                  ><img src="./images/icon-todo.svg" alt="" /></span
+                >todo list
+              </li>
+              <li>
+                <span class="icon"
+                  ><img src="./images/icon-calendar.svg" alt="" /></span
+                >calendar
+              </li>
+              <li>
+                <span class="icon"
+                  ><img src="./images/icon-reminders.svg" alt="" /></span
+                >reminders
+              </li>
+              <li>
+                <span class="icon"
+                  ><img src="./images/icon-planning.svg" alt="" /></span
+                >planning
+              </li>
+            </menu>
+          </li>
+          <li>
+            <div class="navbar-l2-header" onclick="toggleSubitems(event)">
+              company
+              <span class="icon"
+                ><img src="./images/icon-arrow-down.svg" alt=""
+              /></span>
+            </div>
+            <menu class="navbar-l2 hidden">
+              <li>history</li>
+              <li>our team</li>
+              <li>blog</li>
+            </menu>
+          </li>
+          <li class="navbar-l2-header">careers</li>
+          <li class="navbar-l2-header">about</li>
+        </menu>
+        <div class="navbar-actions">
+          <button class="navbar-action" type="button">login</button>
+          <button id="action-register" class="navbar-action" type="button">
+            register
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="hero">
+      <picture class="hero-picture">
+        <img src="./images/image-hero-mobile.png" alt="Make remote work" />
+      </picture>
+      <div class="hero-text">
+        <h1>Make remote work</h1>
+        <p>
+          Get your team in sync, no matter your location. Streamline processes,
+          create team rituals, and watch productivity soar.
+        </p>
+        <button class="cta" type="button">Learn more</button>
+      </div>
+      <div class="hero-social-proof">
+        <span class="social-proof-logo">
+          <img src="./images/client-databiz.svg" alt="databiz" />
+        </span>
+        <span class="social-proof-logo">
+          <img src="./images/client-audiophile.svg" alt="audiophile" />
+        </span>
+        <span class="social-proof-logo">
+          <img src="./images/client-meet.svg" alt="meet" />
+        </span>
+        <span class="social-proof-logo">
+          <img src="./images/client-maker.svg" alt="maker" />
+        </span>
+      </div>
+    </main>
+
+    <script>
+      function toggleNavbar() {
+        const navbarClasses = document.querySelector(".navbar-nav").classList;
+        if (navbarClasses.contains("hidden")) {
+          navbarClasses.remove("hidden");
+        } else {
+          navbarClasses.add("hidden");
+        }
+      }
+
+      function toggleSubitems(event) {
+        event.stopPropagation();
+        const headerClasses = event.currentTarget.nextElementSibling.classList;
+        if (headerClasses.contains("hidden")) {
+          headerClasses.remove("hidden");
+        } else {
+          headerClasses.add("hidden");
+        }
+      }
+    </script>
+  </body>
+</html>
